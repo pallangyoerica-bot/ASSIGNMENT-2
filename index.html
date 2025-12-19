@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle Triangle Buttons</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 80px;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        /* Circle container */
+        .circle {
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            position: relative;
+            border-radius: 50%;
+        }
+
+        /* Triangle button */
+        .triangle-btn {
+            width: 80px;
+            height: 80px;
+            border: none;
+            cursor: pointer;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            position: absolute;
+        }
+
+        .pink { background-color: pink; }
+        .orange { background-color: orange; }
+        .brown { background-color: brown; }
+        .random { background-color: black; }
+
+        .triangle-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Positioning in a circle */
+        .btn1 { top: 0; left: 110px; }
+        .btn2 { right: 0; top: 110px; transform: rotate(90deg); }
+        .btn3 { bottom: 0; left: 110px; transform: rotate(180deg); }
+        .btn4 { left: 0; top: 110px; transform: rotate(-90deg); }
+
+    </style>
+</head>
+<body>
+
+    <h1>Triangle Buttons in a Cycle</h1>
+
+    <div class="circle">
+        <button class="triangle-btn pink btn1" onclick="changeColor('pink')"></button>
+        <button class="triangle-btn orange btn2" onclick="changeColor('orange')"></button>
+        <button class="triangle-btn brown btn3" onclick="changeColor('brown')"></button>
+        <button class="triangle-btn random btn4" onclick="randomColor()"></button>
+    </div>
+
+    <script>
+        function changeColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function randomColor() {
+            const colors = ["pink", "orange", "brown", "purple", "blue", "green"];
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            document.body.style.backgroundColor = colors[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
+
